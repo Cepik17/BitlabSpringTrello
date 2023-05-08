@@ -12,6 +12,7 @@ import java.util.List;
 public class TaskCategoryServiceImpl implements TaskCategoryService {
     @Autowired
     private TaskCategoryRepository taskCategoryRepository;
+
     @Override
     public TaskCategory findById(Long id) {
         return taskCategoryRepository.findById(id).orElse(null);

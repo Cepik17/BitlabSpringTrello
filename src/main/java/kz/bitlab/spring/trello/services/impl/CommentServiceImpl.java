@@ -13,6 +13,7 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
+
     @Override
     public List<Comment> findAllbyTask(Task task) {
         return commentRepository.findAllByTask(task);
@@ -20,7 +21,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void addComment(String comment, Task task) {
-        Comment newcomment= new Comment();
+        Comment newcomment = new Comment();
         newcomment.setComment(comment);
         newcomment.setTask(task);
         commentRepository.save(newcomment);

@@ -1,7 +1,5 @@
 package kz.bitlab.spring.trello.controllers;
 
-import kz.bitlab.spring.trello.repositories.FolderRepository;
-import kz.bitlab.spring.trello.repositories.TaskRepository;
 import kz.bitlab.spring.trello.entities.Folder;
 import kz.bitlab.spring.trello.services.FolderService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,10 +7,15 @@ import java.util.List;
 
 public interface TaskService {
     List<Task> findAll();
+
     List<Task> findByfolder(Folder folder);
+
     Task findById(Long id);
+
     void addNewTask(Task task, Folder folder);
+
     void editTask(Task task, Folder folder);
+
     void deleteTask(Task task);
 
 }

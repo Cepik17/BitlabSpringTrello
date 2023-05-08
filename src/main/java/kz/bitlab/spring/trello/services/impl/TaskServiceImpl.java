@@ -13,6 +13,7 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskRepository taskRepository;
+
     @Override
     public List<Task> findAll() {
         return taskRepository.findAll();

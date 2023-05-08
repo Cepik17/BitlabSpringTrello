@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table (name="tasks")
+@Table(name = "tasks")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name = "title")
+    @Column(name = "title")
     private String title;
-    @Column (name= "description", columnDefinition="TEXT")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description; // TEXT
-    @Column (name = "status")
+    @Column(name = "status")
     private int status; // 0 - todo, 1 - intest, 2 - done, 3 - failed
     @ManyToOne
     private Folder folder; // Many To One

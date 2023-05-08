@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface CommentService {
     List<Comment> findAllbyTask(Task task);
+
     void addComment(String comment, Task task);
+
     Comment findCommentById(Long id);
+
     void deleteComment(List<Comment> comments);
 }

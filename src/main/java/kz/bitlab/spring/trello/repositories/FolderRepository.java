@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface FolderRepository extends JpaRepository<Folder, Long> {
-    List<Folder> findByCategoriesListContaining (TaskCategory category);
+    List<Folder> findByCategoriesListContaining(TaskCategory category);
 }

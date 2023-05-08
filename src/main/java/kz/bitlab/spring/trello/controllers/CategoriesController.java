@@ -24,23 +24,25 @@ public class CategoriesController {
     private TaskCategoryService taskCategoryService;
     @Autowired
     private FolderService folderService;
-    @GetMapping ("/categories")
-    public String allCategories(Model model){
+
+    @GetMapping("/categories")
+    public String allCategories(Model model) {
         List<Task> tasks = taskService.findAll();
         List<TaskCategory> taskCategories = taskCategoryService.findAll();
         model.addAttribute("taskCategories", taskCategories);
         model.addAttribute("tasks", tasks);
         return "categories";
     }
+
     @PostMapping("/sortcategory")
-    public String sortByCategory(@RequestParam (name="category_id") Long categoryId, Model model){
+    public String sortByCategory(@RequestParam(name = "category_id") Long categoryId, Model model) {
         TaskCategory taskCategory = taskCategoryService.findById(categoryId);
         List<Folder> folders = folderService.findByCategoriesListContaining(taskCategory);
         List<Task> tasks = new ArrayList<>();
-        for (Folder folder : folders){
+        for (Folder folder : folders) {
             tasks.addAll(taskService.findByfolder(folder));
         }
-        model.addAttribute("tasks",tasks);
+        model.addAttribute("tasks", tasks);
         model.addAttribute("categoryname", taskCategory.getName());
         return "sortedcategories";
     }

@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface FolderService {
     List<Folder> findAll();
+
     Folder findFolderById(Long id);
+
     void addFolder(Folder folder);
+
     void updateFolder(Folder folder);
+
     List<Folder> findByCategoriesListContaining(TaskCategory taskCategory);
 }

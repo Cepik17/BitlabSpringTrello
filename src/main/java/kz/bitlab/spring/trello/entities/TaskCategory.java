@@ -7,15 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table (name= "task_categories")
+@Table(name = "task_categories")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskCategory {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name= "name")
+    @Column(name = "name")
     private String name;
 }
