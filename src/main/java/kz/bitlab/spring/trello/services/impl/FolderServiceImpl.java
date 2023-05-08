@@ -1,6 +1,7 @@
 package kz.bitlab.spring.trello.services.impl;
 
 import kz.bitlab.spring.trello.entities.Folder;
+import kz.bitlab.spring.trello.entities.TaskCategory;
 import kz.bitlab.spring.trello.repositories.FolderRepository;
 import kz.bitlab.spring.trello.services.FolderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,9 @@ public class FolderServiceImpl implements FolderService {
     public void updateFolder(Folder folder) {
         folderRepository.save(folder);
     }
+
+//    @Override
+//    public void addTaskCategory(TaskCategory taskCategory) {
+//        return folderRepository.save(taskCategory);
+//    }
 }

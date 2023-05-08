@@ -23,6 +23,28 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findByFolder(folder);
     }
 
+    @Override
+    public Task findById(Long id) {
+        return taskRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void addNewTask(Task task, Folder folder) {
+        task.setStatus(0);
+        task.setFolder(folder);
+        taskRepository.save(task);
+    }
+
+    @Override
+    public void editTask(Task task, Folder folder) {
+        task.setFolder(folder);
+        taskRepository.save(task);
+    }
+
+    @Override
+    public void deleteTask(Task task) {
+        taskRepository.delete(task);
+    }
 
 
 }

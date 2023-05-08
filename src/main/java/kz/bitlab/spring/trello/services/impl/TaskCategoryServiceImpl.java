@@ -6,6 +6,8 @@ import kz.bitlab.spring.trello.services.TaskCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskCategoryServiceImpl implements TaskCategoryService {
     @Autowired
@@ -13,5 +15,10 @@ public class TaskCategoryServiceImpl implements TaskCategoryService {
     @Override
     public TaskCategory findById(Long id) {
         return taskCategoryRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<TaskCategory> findAll() {
+        return taskCategoryRepository.findAll();
     }
 }

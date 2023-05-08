@@ -28,8 +28,10 @@ public class FolderController {
     public String folderDetails(@PathVariable Long id, Model model){
         Folder folder = folderService.findFolderById(id);
         List<Task> tasks = taskService.findByfolder(folder);
+        List<TaskCategory> taskCategories = taskCategoryService.findAll();
         model.addAttribute("folder", folder);
-        model.addAttribute("tasks",tasks);
+        model.addAttribute("tasks", tasks);
+        model.addAttribute("categories", taskCategories);
         return "folderdetails";
     }
     @PostMapping ("/deletecategory")
@@ -39,6 +41,25 @@ public class FolderController {
         TaskCategory taskCategory = taskCategoryService.findById(categoryId);
         List<TaskCategory> taskCategories = folder.getCategoriesList();
         taskCategories.remove(taskCategory);
+        folderService.updateFolder(folder);
+        return "redirect:/folderdetails/" + folderId;
+    }
+    @PostMapping ("/addtaskcategory")
+    public String addTaskCategory(@RequestParam (name="category_id") Long categoryId,
+                                  @RequestParam (name="folder_id") Long folderId){
+        Folder folder = folderService.findFolderById(folderId);
+        TaskCategory taskCategory = taskCategoryService.findById(categoryId);
+        List<TaskCategory> taskCategories = folder.getCategoriesList();
+        if(!taskCategories.contains(taskCategory)){
+            taskCategories.add(taskCategory);
+        }
+        folderService.updateFolder(folder);
+        return "redirect:/folderdetails/" + folderId;
+    }
+    @PostMapping ("/addtask")
+    public String addTask(@RequestParam (name="folder_id") Long folderId, Task task){
+        Folder folder = folderService.findFolderById(folderId);
+        taskService.addNewTask(task,folder);
         folderService.updateFolder(folder);
         return "redirect:/folderdetails/" + folderId;
     }
