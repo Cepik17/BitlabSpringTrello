@@ -5,14 +5,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">All categories</h5>
-                    <div style="display: flex">
-                        <form action="/sortcategory" method="post" th:each="taskCategory : ${taskCategories}">
-                          <input type="hidden" name="category_id" th:value="${taskCategory.getId()}">
-                            <button type="submit" class="btn btn-warning" th:text="${taskCategory.getName()}"
-                                    style="margin-right: 5px"></button>
-                        </form>
-                    </div>
+                    <button type="button" class="btn btn-warning" th:text="${categoryname}" disabled></button>
                 </div>
             </div>
         </div>

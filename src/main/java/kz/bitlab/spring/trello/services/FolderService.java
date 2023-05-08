@@ -10,5 +10,5 @@ public interface FolderService {
     Folder findFolderById(Long id);
     void addFolder(Folder folder);
     void updateFolder(Folder folder);
-//    void addTaskCategory(TaskCategory taskCategory);
+    List<Folder> findByCategoriesListContaining(TaskCategory taskCategory);
 }

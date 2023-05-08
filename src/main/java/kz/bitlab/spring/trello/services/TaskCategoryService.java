@@ -7,4 +7,5 @@ import java.util.List;
 public interface TaskCategoryService {
     TaskCategory findById(Long id);
     List<TaskCategory> findAll();
+
 }

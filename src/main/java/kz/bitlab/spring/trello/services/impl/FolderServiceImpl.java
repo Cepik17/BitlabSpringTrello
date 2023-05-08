@@ -32,8 +32,8 @@ public class FolderServiceImpl implements FolderService {
         folderRepository.save(folder);
     }
 
-//    @Override
-//    public void addTaskCategory(TaskCategory taskCategory) {
-//        return folderRepository.save(taskCategory);
-//    }
+    @Override
+    public List<Folder> findByCategoriesListContaining(TaskCategory taskCategory) {
+        return folderRepository.findByCategoriesListContaining(taskCategory);
+    }
 }
